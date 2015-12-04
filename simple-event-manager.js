@@ -4,6 +4,7 @@
 (function (win){
   var evntHandlers = {},
   eventManager = {
+    version: "0.0.1",
     on: function(evnt, callback){
       if(!evntHandlers[evnt]){
         evntHandlers[evnt] = [];
