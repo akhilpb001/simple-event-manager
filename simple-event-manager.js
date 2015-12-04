@@ -2,7 +2,7 @@
  *  eventManager v0.0.1
  */
 (function (win){
-  var	evntHandlers = {},
+  var evntHandlers = {},
   eventManager = {
     on: function(evnt, callback){
       if(!evntHandlers[evnt]){
