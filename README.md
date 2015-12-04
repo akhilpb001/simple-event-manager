@@ -1,1 +1,2 @@
-# simple-event-manager
+# Simple Event Manager
+Simple event manager library.
