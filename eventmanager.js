@@ -1,10 +1,11 @@
 /**
- *  eventManager v0.0.1
+ *  eventManager v0.0.2
  */
+
 (function (win){
   var evntHandlers = {},
   eventManager = {
-    version: "0.0.1",
+    version: "0.0.2",
     on: function(evnt, callback){
       if(!evntHandlers[evnt]){
         evntHandlers[evnt] = [];
@@ -22,14 +23,17 @@
       }
       return this;
     },
-	  trigger: function(evnt){
-	    var argmnts = [].slice.call(arguments),
-	    args = argmnts.slice(1);
-      for(var i = 0; i < evntHandlers[evnt].length; i++){
-        evntHandlers[evnt][i].apply(win, args);
-      }
-	    return this;
-	  }
+     trigger: function(evnt){
+       var argmnts = [].slice.call(arguments),
+		   args = argmnts.slice(1);
+       for(var i = 0; i < evntHandlers[evnt].length; i++){
+		  evntHandlers[evnt][i].apply(win, args);
+       }
+       return this;
+     }
   };
+  eventManager.subscribe = eventManager.on;
+  eventManager.unsubscribe = eventManager.off;
+  eventManager.publish = eventManager.trigger;
   win.eventManager = eventManager;
 })(window);
